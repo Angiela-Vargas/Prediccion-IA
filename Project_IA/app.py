@@ -51,21 +51,12 @@ input_data = pd.DataFrame({
 input_data = input_data.astype(float)
 
 if st.button('Predecir'):
-    # Deshabilitar el botón después de hacer clic
-    button_placeholder = st.empty()
-    button_placeholder.button('Predecir', disabled=True)
-    
+       
     # Realizar la predicción
     prediccion = modelo.predict(input_data)
     resultado = np.argmax(prediccion)
     beneficios = {0: 'MATRICULA', 1: 'SOSTENIMIENTO', 2: 'MATRICULA Y SOSTENIMIENTO'}
     st.write(f'El beneficio otorgado es: {beneficios.get(resultado, "Desconocido")}')
     
-    # Habilitar el botón nuevamente después de 2 segundos
-    import time
-    time.sleep(2)
-    button_placeholder.button('Predecir', disabled = False)
-
-
 # Escribir en la terminal para ejecutar la vista
 # streamlit run d:/Uni/4to/IA/Project_IA/app.py
