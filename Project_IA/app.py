@@ -64,7 +64,7 @@ if st.button('Predecir'):
     # Habilitar el botón nuevamente después de 2 segundos
     import time
     time.sleep(2)
-    button_placeholder.button('Predecir')
+    button_placeholder.button('Predecir', disabled = False)
 
 
 # Escribir en la terminal para ejecutar la vista
