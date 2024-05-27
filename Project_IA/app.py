@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 
 # Cargar el modelo
-modelo = tf.keras.models.load_model('modelo_entrenado.h5')
+modelo = tf.keras.models.load_model('Project_IA/modelo_entrenado.h5')
 
 # Título de la aplicación
 st.title('Predicción de Beneficios Educativos - Becas y créditos')
