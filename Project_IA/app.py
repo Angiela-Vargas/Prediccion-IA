@@ -50,13 +50,21 @@ input_data = pd.DataFrame({
 # Convertir las columnas al tipo float
 input_data = input_data.astype(float)
 
-# Realizar la predicción
 if st.button('Predecir'):
+    # Deshabilitar el botón después de hacer clic
+    button_placeholder = st.empty()
+    button_placeholder.button('Predecir', disabled=True)
+    
+    # Realizar la predicción
     prediccion = modelo.predict(input_data)
-    #resultado = int(np.round(prediccion[0, 0]))  # Redondear y convertir a entero
-    resultado = np.argmax(prediccion)  # Obtener el índice del valor máximo
+    resultado = np.argmax(prediccion)
     beneficios = {0: 'MATRICULA', 1: 'SOSTENIMIENTO', 2: 'MATRICULA Y SOSTENIMIENTO'}
     st.write(f'El beneficio otorgado es: {beneficios.get(resultado, "Desconocido")}')
+    
+    # Habilitar el botón nuevamente después de 2 segundos
+    import time
+    time.sleep(2)
+    button_placeholder.button('Predecir')
 
 
 # Escribir en la terminal para ejecutar la vista
